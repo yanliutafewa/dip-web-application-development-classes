@@ -1,14 +1,25 @@
-import { add, subtract, multiply, divide } from "./math.js";
+import multiply, { add, subtract, divide as myDivide } from "./math.js";
 
-console.log(add(3, 2)); // 5
-console.log(subtract(5, 2)); // 3
-console.log(multiply(5, 2)); // 10
-console.log(divide(5, 2)); // 2.5
+// console.log(add(3, 2)); // 5
+// console.log(subtract(5, 2)); // 3
+// console.log(myDivide(6, 3)); // 2
+// console.log(multiply(6, 2)); // 12
 
-let result = (add (3,2) === 5) ? 'correct' :'incorrect';
+let add_result = add(3, 2); // 5
+let subtract_result = subtract(5, 2); // 3
+let divide_result = myDivide(6, 3); // 2
+let multiply_result = multiply(6, 2); // 12
 
-let myMessageField1 = document.getElementById("myMessage1");
-myMessageField1.innerHTML = " Add 3 to 2, then we got " + add(3, 2);
+let results = [add_result, subtract_result, divide_result, multiply_result];
+// results = [add(3, 2), subtract(5, 2), myDivide(6, 3), multiply(6, 2)];
 
-let myMessageField2 = document.getElementById("myMessage2");
-myMessageField2.innerHTML = " The result is " + result;
+let app = document.getElementById("result_list");
+
+let show = true;
+
+show
+  ? (app.innerHTML = `<ol>${results
+      .map((result) => `<li>${result}</li>`)
+      .join("")}
+      </ol>`)
+  : `<div>Nothing to show</div>`;
