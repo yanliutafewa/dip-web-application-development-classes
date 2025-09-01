@@ -26,14 +26,23 @@
       function App() {
         const items = [
           { id: 1, title: "First Item" },
-          { id: 2, title: "Second Item" },
+          { id: 22, title: "twenty-Second Item" },
           { id: 3, title: "Third Item" },
         ];
 
         // Your code goes here to return JSX
-        // Hint: you will need to loop through these items
+
+        // Sort items by title in descending order
+        const sortedItems = [...items].sort((a, b) => {
+          return b.title.localeCompare(a.title);
+        });
+
+        // Sort items by id in descending order
+        const sortedItems_2 = [...items].sort((a, b) => b.id - a.id);
+
         // render
-        return <ItemList items={items} />
+        return <ItemList items={sortedItems} />
+        //return <ItemList items={sortedItems_2} />
       }
     </script>
   </body>
